@@ -9,9 +9,7 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap'])
   });
 }])
 
-.controller('ArticleController', ['$scope', '$http', '$routeParams', 'video', '$window', function($scope, $http, $routeParams, video, window) {
-
-        
+.controller('ArticleController', ['$scope', '$http', '$routeParams', 'video', '$rootScope', function($scope, $http, $routeParams, video, $rootScope) {
         var searchParam = $routeParams.search;
 
         
@@ -85,18 +83,19 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap'])
             second: video_list[1].src
         };
 
-        var videoCallback = function (index) {
+        $rootScope.videoCallback = function (index) {
             new makeRequest(video_list[index].keyword);
         }
         // Add some video sources for the player!
         video.addSource('webm', video_list[0].src);
+        new makeRequest(video_list[0].keyword);
 
         video.addSource('webm', video_list[1].src);
 
-        window.myvideo = video;
-
-        $scope.$watch('$scope.playing', function(newValue, oldValue) {
-            console.log($scope.playing);
+        $scope.$watch(function() {
+          return video;
+        }, function(newValue, oldValue) {
+          console.log(newValue)
         });
 
         // Accordian
