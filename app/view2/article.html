@@ -1,0 +1,13 @@
+<p>This is the partial for view 2.</p>
+<p>
+    <div ng-controller="ArticleController">
+        <div class="results" ng-repeat="article in articles | orderBy : -'dateCreated'">
+            <ul style="list-style: none;">
+                <li class="content">{{article.title}}</li>
+                <li class="content">{{article.subtitle}}</li>
+                <li class="content">{{article.leadtext}}</li>
+            </ul>
+        </div>
+    </div>
+</p>
+
