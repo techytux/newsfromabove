@@ -5,21 +5,27 @@
 
 
             <!-- Screen Directive -->
-            <video vi-screen="" autoplay="" src="videos/Altstadt_Potsdam_UAV.mp4" type="mp4" id="bgvid" poster="videos/poster.png"></video>
+            <video vi-screen="" autoplay="" id="bgvid" poster="videos/poster.png"></video>
           
 
             
 
         </section>
         <div class="video-article">
-            <div ng-repeat="article in articles | orderBy : -'dateCreated'">
+            <h3>NEWS</h3>
+            <!-- <div ng-repeat="article in articles | orderBy : -'dateCreated'">
             <ul style="list-style: none;">
                 <li class="content"><h4>{{article.subtitle}}</h4></li>
             
                 <li class="content"><p>{{article.leadtext}}</p></li>
             </ul>
-            </div>
-
+            </div> -->
+            <accordion>
+                <accordion-group heading="{{article.subtitle}}" ng-repeat="article in articles">
+                  {{article.leadtext}}
+                </accordion-group>
+            </accordion>
+            <h3>VIDEOS</h3>
         </div>
 
     </section>

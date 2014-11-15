@@ -809,6 +809,14 @@ background-size: cover;
   width: 33%;
   margin: 2rem;
   float: right;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   position: fixed; right: 0;
+}
+
+.panel-article {
+  font-family: Agenda-Light,Agenda\ Light,Agenda,Arial\ Narrow,sans-serif;
+  font-weight: 100;
+  text-align: left;
+  color: #fff;
+  padding: 2rem;
 }
