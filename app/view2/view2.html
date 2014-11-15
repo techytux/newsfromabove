@@ -16,16 +16,21 @@
             <!-- <div ng-repeat="article in articles | orderBy : -'dateCreated'">
             <ul style="list-style: none;">
                 <li class="content"><h4>{{article.subtitle}}</h4></li>
-            
+
                 <li class="content"><p>{{article.leadtext}}</p></li>
             </ul>
             </div> -->
             <accordion>
-                <accordion-group heading="{{article.subtitle}}" ng-repeat="article in articles">
+                <accordion-group heading="{{article.subtitle}}" ng-repeat="article in articles | orderBy : -'dateCreated'">
                   {{article.leadtext}}
                 </accordion-group>
             </accordion>
             <h3>VIDEOS</h3>
+            <accordion>
+                <accordion-group heading="{{videoBrucke.title}}" ng-repeat="videoBrucke in videosBrucke">
+                    <youtube-video video-id=videoBrucke.id player-width="'200px'" player-height="'150px'"></youtube-video>
+                </accordion-group>
+            </accordion>
         </div>
 
     </section>

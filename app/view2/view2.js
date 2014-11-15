@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap'])
+angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-embed'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/video', {
@@ -67,6 +67,43 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap'])
             'keyword': 'Glienicker'
         }];
 
+
+        $scope.videosBrucke = [
+            {
+                title: 'Tausche Ostagent gegen Westagent',
+                id: 'hDwvDHnFWI0'
+            },
+            {
+                title: 'Potsdam Glienicker Brücke',
+                id: 'IBN418lPt4M'
+            }
+        ];
+
+        $scope.parkBabelsbergs = [
+            {
+                title: 'Park Babelsberg, flying over the Kindermann See (Potsdam, Germany)',
+                id: 'v_upHLPHUP0'
+            }
+        ];
+
+        $scope.alterLandtags = [
+            {
+                title: 'Reichsarchiv POTSDAM Kriegsschule Landtag',
+                id: 'cpBFFPWUlsc'
+            }
+        ];
+
+        $scope.alterLandtags = [
+            {
+                title: 'Der neue Brandenburger Landtag in Potsdam',
+                id: 'u40Dx82N3OI'
+            },
+            {
+                title: 'Am 18.01.2014 fand die feierliche Einweihung des neuen Landtages in Potsdam statt.',
+                id: 'A1jOcHwOnuM'
+            }
+        ];
+
         /**
          * @property playlistOpen
          * @type {Boolean}
@@ -82,6 +119,8 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap'])
             first:  video_list[0].src,
             second: video_list[1].src
         };
+
+        new makeRequest(video_list[0].keyword);
 
         $rootScope.videoCallback = function (index) {
             new makeRequest(video_list[index].keyword);
