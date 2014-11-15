@@ -1,2 +1,31 @@
-<p>This is the partial for view 2.</p>
+<!-- Section: contact -->
+    <section id="contact" class="home-section text-center" ng-controller="ArticleController">
+        <div class="container">
+                </div>
+                <div class="row">
 
+
+                    <div class="video-article" id="polina">
+                        <div ng-repeat="article in articles | orderBy : -'dateCreated'">
+                        <ul style="list-style: none;">
+                            <li class="content"><h4>{{article.subtitle}}</h4></li>
+                            <!-- <li class="content"><p>{{article.subtitle}}</p></li> -->
+                            <li class="content"><p>{{article.leadtext}}</p></li>
+                        </ul>
+                        </div>
+
+                    </div>
+                    <i class="fa fa-2x fa-angle-down" style="text-align:middle"></i>
+
+                        <video autoplay="" loop="" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" videocontent>
+        <source src="http://demosthenes.info/assets/videos/polina.webm" type="video/webm">
+
+        </video>
+
+                    
+                </div>  
+
+
+        </div>
+    </section>
+    <!-- /Section: contact -->
