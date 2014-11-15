@@ -5,10 +5,10 @@ angular.module('myApp.video', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/video', {
     templateUrl: 'view2/view2.html',
-    controller: 'VideoCtrl'
+    controller: 'ArticleController'
   });
 }])
 
-.controller('View2Ctrl', [function() {
+.controller('ArticleController', [function() {
 
 }]);

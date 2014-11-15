@@ -4,9 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.map',
-  'myApp.video',
-  'myApp.version'
+  'myApp.video'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/map'});
 }]);
