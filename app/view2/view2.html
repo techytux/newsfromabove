@@ -5,7 +5,7 @@
 
 
             <!-- Screen Directive -->
-            <video vi-screen="" autoplay="" id="bgvid" poster="videos/poster.png"></video>
+            <video vi-screen="" autoplay="" loop="" id="bgvid" poster="videos/poster.png"></video>
           
 
             
@@ -27,8 +27,8 @@
             </accordion>
             <h3>VIDEOS</h3>
             <accordion>
-                <accordion-group heading="{{videoBrucke.title}}" ng-repeat="videoBrucke in videosBrucke">
-                    <youtube-video video-id=videoBrucke.id player-width="'200px'" player-height="'150px'"></youtube-video>
+                <accordion-group heading="{{relatedVideo.title}}" ng-repeat="relatedVideo in relatedVideos">
+                    <youtube-video video-id=relatedVideo.id player-width="'400px'"></youtube-video>
                 </accordion-group>
             </accordion>
         </div>
