@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.video', ['ngRoute'])
+angular.module('myApp.video', ['ngRoute', 'ngVideo'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/video', {
@@ -9,8 +9,9 @@ angular.module('myApp.video', ['ngRoute'])
   });
 }])
 
-.controller('ArticleController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+.controller('ArticleController', ['$scope', '$http', '$routeParams', 'video', '$window', function($scope, $http, $routeParams, video, window) {
 
+		
 		var searchParam = $routeParams.search;
 
         this.oauth = new OAuth({
@@ -42,32 +43,58 @@ angular.module('myApp.video', ['ngRoute'])
             headers: { Authorization : authorization['Authorization'] }
         }).success(function(data, status, headers, config) {
 
-        $scope.articles = data['documents'];
+        	$scope.articles = data['documents'];
 
         }).error(function(data, status, headers, config) {
             $scope.result = "An error occured: " + data;
         })
- }])
 
-.directive('videoLoader', function(){
-    return function (scope, element, attrs){
-        scope.$watch(attrs.videoLoader, function(){
-            element[0].load();
-            element[0].play()
-            video.hasPlayed = true;
-            $(video).bind('ended', function(){
-		        // only functional if "loop" is removed
-				vid.pause();
-				// to capture IE10
-				vidFade();
-                $(this).unbind('ended');
-                if (!this.hasPlayed) {
-                    return;
-                }
-                scope.tutorialNumber++;
-                scope.loadFromMenu();
-                scope.$apply();
-            });
-        });
-    }
-});
+        /*video.addSource('mp4', 'http://www.w3schools.com/html/mov_bbb.mp4', true);
+
+        window.myvideo = video;
+        console.log(video);
+*/
+        /**
+         * @property playlistOpen
+         * @type {Boolean}
+         * @default false
+         */
+        $scope.playlistOpen = false;
+
+        /**
+         * @property videos
+         * @type {Object}
+         */
+        $scope.videos = {
+            first:  'videos/Altstadt_Potsdam_UAV.webm',
+            second: 'videos/Glienicker_Bruecke_Potsdam_UAV.webm'
+        };
+
+        /**
+         * @method playVideo
+         * @param sourceUrl {String}
+         * @return {void}
+         */
+        $scope.playVideo = function playVideo(sourceUrl) {
+            video.addSource('mp4', sourceUrl, true);
+        };
+
+        /**
+         * @method getVideoName
+         * @param videoModel {Object}
+         * @return {String}
+         */
+        $scope.getVideoName = function getVideoName(videoModel) {
+
+            switch (videoModel.src) {
+                case ($scope.videos.first): return "Big Buck Bunny";
+                case ($scope.videos.second): return "The Bear";
+                default: return "Unknown Video";
+            }
+
+        };
+
+        // Add some video sources for the player!
+        video.addSource('mp4', $scope.videos.first);
+        video.addSource('mp4', $scope.videos.second);
+ }]);
