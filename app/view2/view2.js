@@ -54,8 +54,8 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
                     id: 'hDwvDHnFWI0'
                 },
                 {
-                    title: 'Potsdam Glienicker Brücke',
-                    id: 'IBN418lPt4M'
+                    title: '50 Jahre Agentenaustausch',
+                    id: '06Cl138biAI'
                 }
             ]
         }, {
@@ -63,8 +63,8 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
             'src': 'videos/Altstadt_Potsdam_UAV_2.webmhd.webm',
             'keyword': 'Altstadt Potsdam',
             'relatedVideos': [{
-                    title: 'Reichsarchiv POTSDAM Kriegsschule Landtag',
-                    id: 'cpBFFPWUlsc'
+                    title: 'Bilder deutscher Städte',
+                    id: 'r6pz62ZR7A8'
                 }
             ]
         }, {
@@ -81,15 +81,29 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
         }, {
             'name': 'video4',
             'src': 'videos/Sanssoucis_2_UAV.webmhd.webm',
-            'keyword': 'schloss sanssouci',
-            'relatedVideos': [
+            'keyword': 'sanssouci Potsdam',
+            'relatedVideos': [{
+                    title: 'SansSouci im Herbst',
+                    id: 'uKKu9L2iQTs'
+                },
+                {
+                    title: 'Sanssouci Palace, Potsdam',
+                    id: '9gKTjQRajLY'
+                }
             ]
 
         }, {
             'name': 'video5',
             'src': 'videos/Villa_Schoeningen_UAV_2.webmhd.webm',
             'keyword': 'Villa Schoeningen',
-            'relatedVideos': [
+            'relatedVideos': [{
+                    title: 'Villa Schöningen wird zum Museum',
+                    id: 'rtHLpvNz3H8'
+                },
+                {
+                    title: 'Die Villa Schöningen an der Glienicker Brücke',
+                    id: 'ZpSzNsJoNDY'
+                }
             ]
 
         }];
