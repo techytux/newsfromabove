@@ -81,7 +81,7 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
         }, {
             'name': 'video4',
             'src': 'videos/Sanssoucis_2_UAV.webmhd.webm',
-            'keyword': 'sanssouci Potsdam',
+            'keyword': 'schloss sanssouci potsdam&category=-\"Olympia\"&geos=\"Potsdam\",-\"DDR\"',
             'relatedVideos': [{
                     title: 'SansSouci im Herbst',
                     id: 'uKKu9L2iQTs'
