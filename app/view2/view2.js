@@ -101,16 +101,8 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
          */
         $scope.playlistOpen = false;
 
-        /**
-         * @property videos
-         * @type {Object}
-         */
-        $scope.videos = {
-            first:  video_list[0].src,
-            second: video_list[1].src
-        };
-
         $rootScope.videoCallback = function (index) {
+            
             new makeRequest(video_list[index].keyword);
             $scope.relatedVideos = video_list[index].relatedVideos;
         }
@@ -122,16 +114,15 @@ angular.module('myApp.video', ['ngRoute', 'ngVideo', 'ui.bootstrap', 'youtube-em
         video.addSource('webm', video_list[3].src);
         video.addSource('webm', video_list[4].src);
 
-        $scope.$watch(function() {
-          return video;
-        }, function(newValue, oldValue) {
-          console.log(newValue)
-        });
-
         // Accordian
 
       $scope.status = {
         isFirstOpen: true,
         isFirstDisabled: false
       };
+
+      $scope.playerVars = {
+        controls: 1,
+      };
+
  }]);
